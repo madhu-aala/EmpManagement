@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE struts-config>
+
+<struts-config> 
+ 
+	<form-beans>
+		<form-bean name="loginForm" type="com.empmanagement.form.LoginForm" />
+		<form-bean name="registration" type="com.empmanagement.form.RegistrationForm" />
+		<form-bean name="timeSheet" type="com.empmanagement.form.TimeSheetForm" />
+		<form-bean name="deactivate" type="com.empmanagement.form.DeactivateForm" />
+		<form-bean name="complaints" type="com.empmanagement.form.ComplaintsForm" />
+		<form-bean name="empSearch" type="com.empmanagement.form.SearchForm" />
+		<form-bean name="updateForm" type="com.empmanagement.form.EmployeeUpdateForm" />
+		<form-bean name="resetPasswordForm" type="com.empmanagement.form.ResetPasswordForm" />
+		<form-bean name="mappingform" type="com.empmanagement.form.LoginMappingForm" />
+		<form-bean name="trackForm" type="com.empmanagement.form.TrackComplaintsForm" />
+		<form-bean name="empCompResForm" type="com.empmanagement.form.EmpComplaintResponceForm" />
+		<form-bean name="forgetPasswordForm" type="com.empmanagement.form.ForgetPasswordForm" />
+	</form-beans>
+
+	<action-mappings type="org.apache.struts.action.ActionMapping">
+  
+		<action input="/login.jsp" name="loginForm" path="/LoginAction" scope="session"
+			type="com.empmanagement.action.LoginAction">
+			<forward name="hrdlogin" path="/hrdlogin.jsp" />
+			<forward name="emplogin" path="/emplogin.jsp" />
+			<forward name="failure" path="/login.jsp" />
+		</action>
+		<action input="/registration.jsp" name="registration" path="/RegistrationAction" scope="session"
+			type="com.empmanagement.action.RegistrationAction">
+			<forward name="hrdlogin" path="/hrdlogin.jsp" />
+			<forward name="registrationsuccess" path="/registrationsuccess.jsp" />
+			<forward name="registration" path="/registration.jsp" />
+		</action>
+		<action input="/timeSheet.jsp" name="timeSheet" path="/TimeSheetAction" scope="session"
+			type="com.empmanagement.action.TimeSheetAction">
+			<forward name="success" path="/timeSheet.jsp" />
+			<forward name="hrdlogin" path="/hrdlogin.jsp" />
+		</action>
+		<action input="/empDeactivate.jsp" name="deactivate" path="/DeactivateAction" scope="session"
+			type="com.empmanagement.action.DeactivateAction">
+			<forward name="success" path="/empDeactivate.jsp" />
+			<forward name="failure" path="/empDeactivate.jsp" />
+		</action>  
+		<action input="/complaints.jsp" name="complaints" path="/ComplaintsAction" scope="session"
+			type="com.empmanagement.action.ComplaintsAction">
+			<forward name="success" path="/complaints.jsp" />
+			<forward name="failure" path="/complaints.jsp" />
+		</action>
+		<action input="/empsearch.jsp" name="empSearch" path="/SearchAction" scope="session"
+			type="com.empmanagement.action.SearchAction">
+			<forward name="empdetails" path="/empdetails.jsp" />
+			<forward name="empsearch" path="/empsearch.jsp" />
+		</action>
+		<action input="/hrdempsearch.jsp" name="empSearch" path="/SearchAction" scope="session"
+			type="com.empmanagement.action.SearchAction">
+			<forward name="empdetails" path="/empdetails.jsp" />
+			<forward name="empsearch" path="/hrdempsearch.jsp" />
+		</action>
+		<action input="/empUpdate.jsp" name="empSearch" path="/UpdateSearchEmployeeAction" scope="session"
+			type="com.empmanagement.action.UpdateSearchEmployeeAction">
+			<forward name="hrdlogin" path="/hrdlogin.jsp" />
+			<forward name="updateemployee" path="/updateemployee.jsp" />
+			<forward name="empUpdate" path="/empUpdate.jsp" />
+		</action>
+		<action input="/updateemployee.jsp" name="updateForm" path="/UpdateEmployeeAction" scope="session"
+			type="com.empmanagement.action.UpdateEmployeeAction">
+			<forward name="hrdlogin" path="/hrdlogin.jsp" />
+			<forward name="updatesuccess" path="/updatesuccess.jsp" />
+			<forward name="empUpdate" path="/empUpdate.jsp" />
+		</action>
+		<action input="/resetpassword.jsp" name="resetPasswordForm" path="/ResetPasswordAction" scope="session"
+			type="com.empmanagement.action.ResetPasswordAction">
+			<forward name="resetpassword" path="/resetpassword.jsp" />
+			<forward name="login" path="/login.jsp" />
+			<forward name="resetpasswordfail" path="/resetpasswordfail.jsp" />
+		</action> 
+		<action input="/emplogin.jsp" name="mappingform" path="/EmpLoginAction" scope="session"
+			type="com.empmanagement.action.EmpLoginAction">
+			<forward name="MYPROFILE" path="/myProfile.jsp" />
+			<forward name="EMPLOYEESEARCH" path="/empsearch.jsp" />
+			<forward name="TIMESHEET" path="/timeSheet.jsp" />
+			<forward name="COMPLAINTS" path="/complaints.jsp" />
+			<forward name="TRACKCOMPLAINTS" path="/trackcomplaints.jsp" />
+			<forward name="HOLIDAYS" path="/holidays.jsp" />
+			<forward name="RESETPASSWORD" path="/resetpassword.jsp" />
+			<forward name="LOGOUT" path="/login.jsp" />
+		</action>
+		<action input="/hrdlogin.jsp" name="mappingform" path="/HRDLoginAction" scope="session"
+			type="com.empmanagement.action.HRDLoginAction">
+			<forward name="REGISTRATION" path="/registration.jsp" />
+			<forward name="UPDATE" path="/empUpdate.jsp" />
+			<forward name="EMPLOYEE SEARCH" path="/hrdEmpSearch.jsp" />
+			<forward name="COMPLAINTS" path="/hrdcomplaintsdispaly.jsp" />
+			<forward name="DEACTIVATE EMPLOYEE" path="/empDeactivate.jsp" />
+			<forward name="LOGOUT" path="/login.jsp" />
+		</action>
+		<action input="/trackcompalints.jsp" name="trackForm" path="/TrackComplaintsAction" scope="session"
+			type="com.empmanagement.action.TrackComplaintsAction">
+			<forward name="complaintsdisplay" path="/complaintdisplay.jsp" />
+			<forward name="trackcompalints" path="/trackcompalints.jsp" />
+		</action>
+		<action input="/hrdcomplaintsdisplay.jsp" name="trackForm" path="/ComplaintsResponceAction" scope="session"
+			type="com.empmanagement.action.ComplaintsResponceAction">
+			<forward name="complaintsresponse" path="/complaintsresponse.jsp" />
+			<forward name="hrdcomplaintsdisplay" path="/hrdcomplaintsdisplay.jsp" />
+			<forward name="failure" path="/login.jsp" />
+		</action>
+		<action input="/complaintsresponse.jsp" name="trackForm" path="/ComplaintsResponceAction" scope="session"
+			type="com.empmanagement.action.ComplaintsResponceAction">
+			<forward name="complaintsresponse" path="/complaintsresponse.jsp" />
+			<forward name="hrdcomplaintsdisplay" path="/hrdcomplaintsdisplay.jsp" />
+			<forward name="hrdlogin" path="/hrdlogin.jsp" />
+		</action>
+		<action input="/complaintdisplay.jsp" name="empCompResForm" path="/EmpComplaintResponceAction" scope="session"
+			type="com.empmanagement.action.EmpComplaintResponceAction">
+			<forward name="trackcomplaints" path="/trackcomplaints.jsp" />
+		</action>
+		<action input="/forgetpassword.jsp" name="forgetPasswordForm" path="/ForgetPasswordAction" scope="session"
+			type="com.empmanagement.action.ForgetPasswordAction">
+			<forward name="success" path="/login.jsp" />
+			<forward name="failure" path="/forgetpassword.jsp" />
+		</action>
+	</action-mappings> 
+	
+	<message-resources parameter="com.empmanagement.appres.ApplicationResource" />
+
+</struts-config>

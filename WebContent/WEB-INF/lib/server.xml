@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<context>
+<Resource
+name="jdbc/oracle" auth="container" type="javax.sql.DataSource"
+username="PRODUCT_DEMO6_REP" password="Product_Demo6_Rep" driverClassName="com.oracle.jdbc.Driver"
+url="jdbc:oracle:thin:@192.168.1.244:1521/mpdb"
+/>
+</context>
